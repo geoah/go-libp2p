@@ -13,6 +13,7 @@ import (
 	pb "github.com/ipfs/go-libp2p/p2p/protocol/identify/pb"
 	ma "github.com/jbenet/go-multiaddr"
 	msmux "github.com/whyrusleeping/go-multistream"
+	ws "github.com/whyrusleeping/ws-transport"
 	context "golang.org/x/net/context"
 
 	lgbl "github.com/ipfs/go-libp2p-loggables"
@@ -158,7 +159,9 @@ func (ids *IDService) populateMessage(mes *pb.Identify, c inet.Conn) {
 	laddrs := ids.Host.Addrs()
 	mes.ListenAddrs = make([][]byte, len(laddrs))
 	for i, addr := range laddrs {
-		mes.ListenAddrs[i] = addr.Bytes()
+		if !ws.WsFmt.Matches(addr) { // dont advertise websocket addresses for now
+			mes.ListenAddrs[i] = addr.Bytes()
+		}
 	}
 	log.Debugf("%s sent listen addrs to %s: %s", c.LocalPeer(), c.RemotePeer(), laddrs)
 
@@ -173,6 +176,7 @@ func (ids *IDService) consumeMessage(mes *pb.Identify, c inet.Conn) {
 	p := c.RemotePeer()
 
 	// mes.Protocols
+	ids.Host.Peerstore().Put(p, "Protocols", mes.GetProtocols())
 
 	// mes.ObservedAddr
 	ids.consumeObservedAddress(mes.GetObservedAddr(), c)

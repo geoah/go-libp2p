@@ -59,9 +59,9 @@
       "version": "0.0.0"
     },
     {
-      "hash": "QmUBa4w6CbHJUMeGJPDiMEDWsM93xToK1fTnFXnrC8Hksw",
+      "hash": "QmYp8PC6b9M3UY4awdHkdRUim68KpGSmRmz27bANHteen6",
       "name": "go-multiaddr-net",
-      "version": "1.0.1"
+      "version": "1.1.0"
     },
     {
       "hash": "QmYf7ng2hG5XBtJA3tN34DQ2GUN5HNksEw1rLDkmr6vGku",
@@ -69,9 +69,9 @@
       "version": "0.0.0"
     },
     {
-      "hash": "QmUaRHbB7pUwj5mS9BS4CMvBiW48MpaH2wbGxeWfFhhHxK",
+      "hash": "QmSMZwvs3n4GBikZ7hKzT17c3bk65FmyZo2JqtJ16swqCv",
       "name": "multiaddr-filter",
-      "version": "1.0.1"
+      "version": "1.0.2"
     },
     {
       "hash": "QmT8rehPR3F6bmwL6zjUN8XpiDBFFpMP2myPdC6ApsWfJf",
@@ -179,6 +179,12 @@
       "author": "whyrusleeping",
       "hash": "QmWMKNLGkYJTZ4Tq3DQ8E9j86QaKvGjKgFzvLzGYXvW69Z",
       "name": "go-smux-spdystream",
+      "version": "1.0.0"
+    },
+    {
+      "author": "whyrusleeping",
+      "hash": "QmdcAvwfwhoLcCxSERoNpNSpbz7TvAp9xVQ2S2mFXEiojF",
+      "name": "ws-transport",
       "version": "1.0.0"
     }
   ],
